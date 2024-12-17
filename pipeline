@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('clone') {
+            steps {
+                git 'https://github.com/shashirajraja/onlinebookstore.git'
+            }
+        }
+         stage('installbuild') {
+            steps {
+                sh '''
+                sudo yum install maven -y
+                sudo mvn clean package
+                '''
+            }
+        }
+        stage('awscred') {
+            steps {
+                withCredentials([aws(accessKeyVariable: 'AKIAZ5TC4XLCAFICEWG7', credentialsId: '032ccf94-6946-41cd-981a-41cce09bee3b', secretKeyVariable: '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')]) {
+    // some block
+}
+            }
+        }
+        stage('s3integration') {
+            steps {
+                sh 'sudo aws s3 cp /var/lib/jenkins/workspace/s3/target/*.war s3://pushpa-bkt/'
+            }
+        }
+    }
+}
