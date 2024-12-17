@@ -12,6 +12,7 @@ pipeline {
                 sh '''
                 sudo yum install maven -y
                 sudo mvn clean package
+                echo "my name"
                 '''
             }
         }
