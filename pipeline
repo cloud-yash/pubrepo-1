@@ -13,6 +13,7 @@ pipeline {
                 sudo yum install maven -y
                 sudo mvn clean package
                 echo "pushpa naam soch k flower samjhe kya fire hai me "
+                echo "welcome to goa"
                 '''
             }
         }
