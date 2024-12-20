@@ -15,6 +15,7 @@ pipeline {
                 echo "pushpa naam soch k flower samjhe kya fire hai me "
                 echo "welcome to goa"
                 echo "my,,,,"
+                echo "where is my cash"
                 '''
             }
         }
